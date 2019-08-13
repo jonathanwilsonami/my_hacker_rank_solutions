@@ -1,0 +1,13 @@
+if __name__ == '__main__':
+    s = input()
+    s = list(s)
+    is_alpha_num = any([letter for letter in s if letter.isalnum()])
+    print(is_alpha_num)
+    is_alpha = any([letter for letter in s if letter.isalpha()])
+    print(is_alpha)
+    is_digit = any([letter for letter in s if letter.isdigit()])
+    print(is_digit)
+    is_lower = any([letter for letter in s if letter.islower()])
+    print(is_lower)
+    is_upper = any([letter for letter in s if letter.isupper()])
+    print(is_upper)
