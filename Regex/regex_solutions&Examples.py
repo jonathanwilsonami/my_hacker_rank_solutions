@@ -11,3 +11,7 @@ Regex_Pattern = r'^[^\d][^aeiou][^bcDF][^\s][^AEIOU][^.,]$'
 Regex_Pattern = r'^[a-zA-Z02468]{40}[13579\s]{5}$'
 
 Regex_Pattern = r'^\d{1,2}[a-zA-Z]{3,}\.{,3}$'
+
+
+Regex_Pattern = r'\b[1-9][0-9]{2,4}\b' #Matches -> 100 and 99999
+
