@@ -1,17 +1,34 @@
 ####NOTES###
 
+#Shorthand Character Classes#
+
 \d digit
 \D non-digit
 \s [\r\n\t\f] any white space char
 \S any non-white sapce char
 \w any alpha numeric char (a-z, A-Z and 0-9) as well as underscores
 \W anything that is not alhpa numeric such as % or $
+
+__metacharacters__ [\,^,&,.,|,?,(,),[,],{,},*,+] These chars must be escaped if used as literals
+
+#Anchors# - do not match any characters. They match a position
+
 ^ matches pos at start of string ^123
 $ matches pos at end of string 123$
+\b assert position at a word boundary.
+
+#Dot matches#
+
 . matches anything except for newline
+
+#Character Classes or Character Sets#
+
  [] The character class [ ] matches only one out of several characters placed inside the square brackets.
-[^] The negated character class [^] matches any character that is not in the square brackets.
+[^] The negated character class [^] matches any character that is not in the square brackets.Note: The negated character class is more specific than the dot, which helps the regex engine find matches quickly.
 [a-z] Range 
+
+#Repititions#
+
 {5} repetitions
 {x,y} The {x,y} tool will match between  and  (both inclusive) repetitions of character/character class/group.
     #EX: w{3,5} : It will match the character w 3, 4 or 5 times. 
@@ -19,4 +36,33 @@ $ matches pos at end of string 123$
     #EX: \d{1, 4} : It will match any digits 1, 2, 3 or 4 times.
  * The * tool will match zero or more repetitions of character/character class/group.
  + The + tool will match one or more repetitions of character/character class/group.
- \b assert position at a word boundary.
+ ? makes the preceding token in the regular expression optional. colou?r matches colour or color. 
+ 
+ #Alternation#
+ 
+ ex: cat|dog|mouse|fish
+ ex:(cat|dog) food.
+ 
+ #Grouping and Capturing#
+ 
+ #Backreferences#
+ ex: ([abc])=\1 matches a=a, b=b, and c=c
+ __Named Groups__ ex: (?<mygroup>[abc])=\k<mygroup> is identical to ([abc])=\1
+ 
+ #Lookaround# -  is a special kind of group. Lookaround matches a position, just like anchors. It does not expand the regex match.
+ 
+ __Positive Lookahead__ ex: q(?=u) matches the q in question, but not in Iraq 
+ __Negative Looahead__ ex: q(?!u) matches q in Iraq but not in question
+ 
+ #Non-Printable Characters#
+ \t, \r, \n, \a, \e, \f, \v
+ __unicode__ ex: \uFFFF or \x{FFFF} and \xA9 matches the copyright symbol
+ 
+ #Terms and other notes#
+ 
+ __Regular Expression Engine__ A regular expression "engine" is a piece of software that can process regular expressions, trying to match the pattern to the given string. 
+ Types: 
+   __regex-directed engines__ - walks through the regex, attempting to match the next token in the regex to the next character. If a match is found, the engine advances through the regex and the subject string. If a token fails to match, the engine backtracks to a previous position in the regex and the subject string where it can try a different path through the regex. Has lazy quantifiers and backreferences, and  atomic grouping and possessive quantifiers. Most modern langauges use this engine. 
+   __text-directed engines__ - walks through the subject string, attempting all permutations of the regex before advancing to the next character in the string. A text-directed engine never backtracks. Thus, there isn't much to discuss about the matching process of a text-directed engine.  
+
+**a regex engine always returns the leftmost match, even if a "better" match could be found later
