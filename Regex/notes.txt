@@ -36,7 +36,10 @@ $ matches pos at end of string 123$
     #EX: \d{1, 4} : It will match any digits 1, 2, 3 or 4 times.
  * The * tool will match zero or more repetitions of character/character class/group.
  + The + tool will match one or more repetitions of character/character class/group.
- ? makes the preceding token in the regular expression optional. colou?r matches colour or color. 
+ ? makes the preceding token in the regular expression optional. colou?r matches colour or color. (By default this is greedy) 
+ ?? This is a lazy optional or turns off the greediness
+ __Lazy quantifiers__ are sometimes also called "ungreedy" or "reluctant"
+Optimizing things - greedy plus and a negated character class: <[^>]+> (For getting <EM> in the string <EM>first</EM>) When using the lazy plus, the engine has to backtrack for each character in the HTML tag that it is trying to match. When using the negated character class, no backtracking occurs at all when the string contains valid HTML code. Backtracking slows down the regex engine.
  
  #Alternation#
  
@@ -44,6 +47,9 @@ $ matches pos at end of string 123$
  ex:(cat|dog) food.
  
  #Grouping and Capturing#
+ __Capturing Group__ Parentheses group the regex between them. They capture the text matched by the regex inside them into a numbered group that can be reused with a numbered backreference. They allow you to apply regex operators to the entire grouped regex.
+ 
+ __non-capturing group__ Non-capturing parentheses group the regex so you can apply regex operators, but do not capture anything.ex: Set(?:Value)?
  
  #Backreferences#
  ex: ([abc])=\1 matches a=a, b=b, and c=c
