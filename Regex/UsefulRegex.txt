@@ -1,2 +1,15 @@
 1. Get everyhing between the first a and last b on multiple lines. 
-        (?<=a)([\s\S]*)(?=b)
+    (?<=a)([\s\S]*)(?=b)
+2. Match a username with at least 3 to 16 chars:
+    ^[a-z0-9_-]{3,16}$
+3. Match a passwords with at least 8 to 18 chars:
+    ^[a-z0-9_-]{6,18}$
+4. Match Hex values: 
+    ^#?([a-f0-9]{6}|[a-f0-9]{3})$
+5. Match Email: 
+    ^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$
+6. Match URL: 
+    ^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$
+7. Match IP address: 
+    ^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$
+    
