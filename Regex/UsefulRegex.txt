@@ -1,0 +1,2 @@
+1. Get everyhing between the first a and last b on multiple lines. 
+        (?<=is)([\s\S]*)(?=sentence)
