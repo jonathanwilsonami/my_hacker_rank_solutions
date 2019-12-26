@@ -1,5 +1,4 @@
 N = int(input())
-myWords = []
 
 for s in range(N):
     S = input()
