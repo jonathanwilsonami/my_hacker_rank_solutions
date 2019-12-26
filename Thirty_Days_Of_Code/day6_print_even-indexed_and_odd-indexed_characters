@@ -1,11 +1,7 @@
 N = int(input())
-S = []
 myWords = []
 
 for s in range(N):
-    #Build a list of words and make words (inputs) into a list of chars
-    S.append(list(input()))
+    S = input()
     #Recall my_list[start:stop:step] can return even and odd indeces
-    even = ''.join(S[s][1::2])
-    odd = ''.join(S[s][0::2])
-    print(odd+' '+even)
+    print(''.join(S[0::2])+' '+''.join(S[1::2]))
