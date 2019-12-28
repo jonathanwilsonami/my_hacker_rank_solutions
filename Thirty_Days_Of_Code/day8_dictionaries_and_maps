@@ -1,3 +1,4 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
 N = int(input())
 
 names = []
@@ -10,12 +11,15 @@ for i in range(N):
 
 phoneBook = {k:v for (k,v) in zip(names, phoneNumbers)}
 
-for i in range(N):
-    query = input()
-    if query not in phoneBook.keys():
-        print("Not found")
-    else:
-        print('{}={}'.format(query,phoneBook[query]))
+while True:
+    try:
+        query = input()
+        if query in phoneBook:
+            print('{}={}'.format(query,phoneBook[query]))
+        else:
+            print('Not found')
+    except:
+        break
 """
 NOTES:
 Dictionaries - Unlike sequences, which are indexed by a range of numbers, dictionaries are indexed by keys, which can be any immutable type; strings and numbers can always be keys. An unordered set of key: value pairs, with the requirement that the keys are unique (within one dictionary).
