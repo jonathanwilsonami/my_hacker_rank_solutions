@@ -1,0 +1,33 @@
+N = int(input())
+
+names = []
+phoneNumbers = []
+
+for i in range(N):
+    s = input().split()
+    names.append(s[0])
+    phoneNumbers.append(int(s[1]))
+
+phoneBook = {k:v for (k,v) in zip(names, phoneNumbers)}
+
+for i in range(N):
+    query = input()
+    if query not in phoneBook.keys():
+        print("Not found")
+    else:
+        print('{}={}'.format(query,phoneBook[query]))
+"""
+NOTES:
+Dictionaries - Unlike sequences, which are indexed by a range of numbers, dictionaries are indexed by keys, which can be any immutable type; strings and numbers can always be keys. An unordered set of key: value pairs, with the requirement that the keys are unique (within one dictionary).
+
+Associative Array/Memory - In computer science, an associative array, map, symbol table, or dictionary is an abstract data type composed of a collection of (key, value) pairs, such that each possible key appears at most once in the collection.
+
+Useful Code:
+list(d.keys())
+sorted(d.keys())
+del d['key']
+'guido' in d
+
+txt = 'welcome to the jungle'
+x = txt.split()
+"""
