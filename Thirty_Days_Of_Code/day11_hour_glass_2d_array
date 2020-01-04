@@ -1,0 +1,27 @@
+import math
+import os
+import random
+import re
+import sys
+
+
+
+if __name__ == '__main__':
+    arr = []
+    
+    for _ in range(6):
+        arr.append(list(map(int, input().rstrip().split())))
+
+    myMax = 0
+    for i in range(4):
+        for j in range(4):
+            totalSum = -1
+            topSum = sum(arr[i][j:3+j])
+            middleSum = arr[i+1][j+1]
+            bottomSum = sum(arr[i+2][j:3+j])
+            totalSum = topSum + middleSum + bottomSum
+            if j == 0 and i == 0:
+                myMax = totalSum
+            myMax = max(totalSum, myMax)
+   
+    print(myMax)
