@@ -13,7 +13,7 @@ public class NumberFormatCurrency {
 
         // Write your code here.
         //NumberFormat nf = NumberFormat.getInstance();
-        Locale indiaLocale = new Locale("en", "IN");
+        Locale indiaLocale = new Locale("en", "IN");//Custom Locale
         NumberFormat unf = NumberFormat.getCurrencyInstance(Locale.US);
         String us = unf.format(payment);
         NumberFormat inf = NumberFormat.getCurrencyInstance(indiaLocale);
