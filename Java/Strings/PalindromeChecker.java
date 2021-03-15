@@ -8,6 +8,7 @@ public class PalindromeChecker {
         Scanner sc=new Scanner(System.in);
         String A=sc.next();
       
+        //Long way
         char fromLeft;
         char fromRight;
         boolean palindrome = true;
@@ -25,6 +26,10 @@ public class PalindromeChecker {
         } else {
             System.out.println("No");
         }
+        
+        //Using reverse method from the StringBuilder
+         System.out.println( A.equals( new StringBuilder(A).reverse().toString())
+                ? "Yes" : "No" );
         
     }
 }
