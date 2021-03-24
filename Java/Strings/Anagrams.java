@@ -5,7 +5,8 @@ public class Anagrams {
     static boolean isAnagram(String a, String b) {
         StringBuilder aa = new StringBuilder(a.toLowerCase());
         StringBuilder bb = new StringBuilder(b.toLowerCase());
-
+        
+        //This is not the fastest solution by any means. I could not use Arrays in the problem. 
         if (aa.length() != bb.length()) {
             return false;
         } else {
